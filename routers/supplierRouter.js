@@ -1,5 +1,4 @@
 const express = require('express')
-const { authenticate} = require(`../middlewares/Auth`)
 const {
     userSignUp, verifyEmail, resendVerificationEmail, userLogin, resetPassword, forgotPassword, changePassword, makeAdmin, getOneUser, userLogOut,
     getAllUsers
@@ -18,7 +17,7 @@ router.post(`/resend-verification`, midasValidator(false), resendVerificationEma
 
 router.post(`/forgot-password`, midasValidator(false), forgotPassword)
 
-router.post(`/change-password/:token`, midasValidator(false), authenticate, changePassword)
+router.post(`/change-password/:token`, midasValidator(false), changePassword)
 
 router.post(`/reset-password/:token`, resetPassword)
 
